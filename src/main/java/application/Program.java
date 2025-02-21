@@ -22,7 +22,7 @@ public class Program {
         System.out.println();
         System.out.println("Employee#" + (i+1)+ ":");
         System.out.print("Id: ");
-        Integer id = sc.nextInt();
+        int id = sc.nextInt();
         System.out.print("Name: ");
         sc.nextLine();
         String name = sc.nextLine();
@@ -35,19 +35,29 @@ public class Program {
     }
         System.out.print("Enter the employee id that will have salary increase: ");
         int idsalary= sc.nextInt();
-
-
-
-
-
+        Integer pos = position(list, idsalary);
+        if (pos == null){
+            System.out.print(" This id does not exist!");
+        }
+        else{
+            System.out.print("Enter the percentage ");
+            double percent = sc.nextDouble();
+            list.get(pos).increaseSalary(percent);
+        }
+        System.out.println();
+        System.out.print("List of employees: ");
+        for (Employee emp : list){
+            System.out.print(emp);
+        }
+        
     sc.close();
     }
-    public int hasId(List<Employee> list,int id){
+    public static Integer position(List<Employee> list,int id){
         for (int i = 0; i < list.size(); i++ ){
             if (list.get(i).getId() == id) {
                 return i;
             }
         }
-        return -1;
+        return null;
     }
 }
