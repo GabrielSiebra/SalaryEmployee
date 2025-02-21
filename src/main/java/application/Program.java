@@ -40,16 +40,16 @@ public class Program {
             System.out.print(" This id does not exist!");
         }
         else{
-            System.out.print("Enter the percentage ");
+            System.out.print("Enter the percentage: ");
             double percent = sc.nextDouble();
             list.get(pos).increaseSalary(percent);
         }
         System.out.println();
-        System.out.print("List of employees: ");
+        System.out.println("List of employees: ");
         for (Employee emp : list){
-            System.out.print(emp);
+            System.out.println(emp);
         }
-        
+
     sc.close();
     }
     public static Integer position(List<Employee> list,int id){
